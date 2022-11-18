@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;CustomerRestController.java&apos; to &apos;springboot-demo/src/main/java/co.vinod.dao&apos;&#x0D;&#x0A;- Original project: &apos;springboot-demo&apos;&#x0D;&#x0A;- Destination element: &apos;springboot-demo/src/main/java/co.vinod.dao&apos;&#x0D;&#x0A;- Original element: &apos;co.vinod.controllers.CustomerRestController.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;co.vinod.dao" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;co.vinod.controllers{CustomerRestController.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1668688043773" units="1" version="1.0"/>
+</session>
