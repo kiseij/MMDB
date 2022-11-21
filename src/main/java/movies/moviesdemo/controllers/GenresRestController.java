@@ -50,6 +50,7 @@ public class GenresRestController {
             return ResponseEntity.status(404).body(null);
         }
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public Iterable<Genre> getAllGenres() {
         return repo.findAll();

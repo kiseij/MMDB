@@ -18,5 +18,18 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    @Column(name = "`YEAR`")
     private String year;
+    @Column(name = "genre_id")
+    private Long genreId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="genre_id", updatable = false, insertable = false)
+    private Genre genre;
+    @Column(name = "director_id")
+    private Long directorId;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "director_id", updatable = false, insertable = false)
+    private Director director;
 }
+
+

@@ -50,6 +50,8 @@ public class DirectorsRestController {
             return ResponseEntity.status(404).body(null);
         }
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public Iterable<Director> getAllDirector() {
         return repo.findAll();
