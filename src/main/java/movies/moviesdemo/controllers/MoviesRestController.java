@@ -9,7 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+
+// Movies API Controller
 
 @RestController
 @RequestMapping("/api/movies")
@@ -32,9 +35,24 @@ public class MoviesRestController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/{id}")
-    public ResponseEntity<Movie> updateMovie(
+    public ResponseEntity<?> updateMovie(
             @PathVariable("id") Integer id,
             @RequestBody Movie movie) {
+
+        if(movie.getYear().length() != 4) {
+            HashMap<String, Object> error = new HashMap<>();
+            error.put("status", 400);
+            error.put("error", "year must be 4 characters long");
+            return ResponseEntity.status(400).body(error);
+        }
+
+        if(movie.getName().length() == 0) {
+            HashMap<String, Object> error = new HashMap<>();
+            error.put("status", 400);
+            error.put("error", "movie title must be present");
+            return ResponseEntity.status(400).body(error);
+        }
+
         movie.setId(id);
         repo.save(movie);
         return ResponseEntity.ok(movie);
@@ -43,6 +61,19 @@ public class MoviesRestController {
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public ResponseEntity<?> addNewMovie(@RequestBody Movie movie) {
+        if(movie.getYear().length() != 4) {
+            HashMap<String, Object> error = new HashMap<>();
+            error.put("status", 400);
+            error.put("error", "year must be 4 characters long");
+            return ResponseEntity.status(400).body(error);
+        }
+
+        if(movie.getName().length() == 0) {
+            HashMap<String, Object> error = new HashMap<>();
+            error.put("status", 400);
+            error.put("error", "movie title must be present");
+            return ResponseEntity.status(400).body(error);
+        }
         repo.save(movie);
         return ResponseEntity.ok(movie);
     }
@@ -52,10 +83,6 @@ public class MoviesRestController {
     public ResponseEntity<?> getMovieById(@PathVariable Integer id) {
         try {
             Movie m = repo.findById(id).get();
-//            if(m.genre_id) {
-//              genre = genreRepo.findById(m.genre_id)
-//              m.genre = genre
-//            }
             return ResponseEntity.ok(m);
         } catch (Exception error) {
             return ResponseEntity.status(404).body(null);

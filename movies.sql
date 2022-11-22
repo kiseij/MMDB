@@ -1,9 +1,11 @@
 create table movies (
 	id INT,
 	name VARCHAR(50),
-	year VARCHAR(50)
+	year VARCHAR(50),
+--	genre_id
+--  director_id
 );
-insert into movies (id, name, year) values (1, 'As Luck Would Have It (Chispa de la vida, La)', 2007);
+insert into movies (id, name, year) values (1, 'As Luck Would Have It (Chispa de la vida, La)', 2007, null, null);
 insert into movies (id, name, year) values (2, 'Caliber 9', 2007);
 insert into movies (id, name, year) values (3, 'Green Years, The', 1992);
 insert into movies (id, name, year) values (4, 'Identity Thief', 2012);
