@@ -1,7 +1,16 @@
-create table directors (
-	id INT,
-	name VARCHAR(50)
+CREATE SEQUENCE "SYSTEM_SEQUENCE_75887DA1_2891_45E8_BFD0_B1A3225221C2"
+MINVALUE 1
+MAXVALUE 999999999
+INCREMENT BY 1
+START WITH 1
+NOCACHE
+NOCYCLE;
+
+CREATE TABLE PUBLIC.DIRECTORS (
+	ID INTEGER DEFAULT (NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_75887DA1_2891_45E8_BFD0_B1A3225221C2) NOT NULL AUTO_INCREMENT,
+	NAME VARCHAR(50)
 );
+
 insert into directors (id, name) values (1, 'Griffin Brookes');
 insert into directors (id, name) values (2, 'Erroll Wellwood');
 insert into directors (id, name) values (3, 'Grove Hendrichs');

@@ -1,7 +1,16 @@
-create table genres (
-	id INT,
-	name VARCHAR(50)
+CREATE SEQUENCE "SYSTEM_SEQUENCE_182D931F_4977_4DA8_AB7D_A2DF99862FFA"
+MINVALUE 1
+MAXVALUE 999999999
+INCREMENT BY 1
+START WITH 1
+NOCACHE
+NOCYCLE;
+
+CREATE TABLE PUBLIC.GENRES (
+	ID INTEGER DEFAULT (NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_182D931F_4977_4DA8_AB7D_A2DF99862FFA) NOT NULL AUTO_INCREMENT,
+	NAME VARCHAR(50)
 );
+
 insert into genres (id, name) values (1, 'Action|Crime|Drama');
 insert into genres (id, name) values (2, 'Comedy|Drama|Fantasy');
 insert into genres (id, name) values (3, 'Horror|Sci-Fi|Thriller');
