@@ -5,6 +5,7 @@ import movies.moviesdemo.entities.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -95,6 +96,7 @@ public class MoviesRestController {
     public Iterable<Movie> getAllMovies(
             @RequestParam(name = "_page", defaultValue = "1") Integer pageNum,
             @RequestParam(name = "_limit", defaultValue = "100") Integer pageSize) {
+        
         Pageable p = PageRequest.of(pageNum-1, pageSize);
         return repo.findAll(p).getContent();
     }
